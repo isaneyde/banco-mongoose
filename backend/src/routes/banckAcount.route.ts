@@ -6,5 +6,5 @@ import {
 
 export const router = express.Router();
 
-router.post("/post", createAccount);
+router.post("/", createAccount);
 router.put("/:id", updateAccount);
