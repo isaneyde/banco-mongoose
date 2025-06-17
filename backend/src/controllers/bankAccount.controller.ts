@@ -58,3 +58,29 @@ export const createAccount = async (
     res.status(500).json({ message: "Erro interno do servidor." });
   }
 };
+
+export const updateAccount = async (
+  req: Request,
+  res: Response
+): Promise<any> => {
+  try {
+    const accountId = req.params.id;
+    const updatedData = req.body;
+
+    const updatedAccount = await BankAccount.findByIdAndUpdate(
+      accountId,
+      updatedData,
+      { new: true }
+    );
+
+    if (!updatedAccount) {
+      return res.status(404).json({ message: "Conta não encontrada." });
+    }
+
+    res
+      .status(200)
+      .json({ message: "Conta atualizada com sucesso!", data: updatedAccount });
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao atualizar conta.", error });
+  }
+};
