@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 import BankAccount from "../models/bankAccountProps";
 
 export const createAccount = async (

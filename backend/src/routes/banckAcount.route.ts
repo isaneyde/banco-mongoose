@@ -4,7 +4,7 @@ import {
   updateAccount,
 } from "../controllers/bankAccount.controller";
 
-export const router = express.Router();
+export const banckAccountRouter = express.Router();
 
-router.post("/", createAccount);
-router.put("/:id", updateAccount);
+banckAccountRouter .post("/", createAccount);
+banckAccountRouter .put("/:id", updateAccount);
