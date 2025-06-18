@@ -66,34 +66,34 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-md">
+    <div className="min-h-screen flex items-center justify-center  p-4">
+      <Card className="w-full max-w-md shadow-md bg-gradient-to-b from-sky-600 to-sky-300 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">Criar Conta Bancária</CardTitle>
+          <CardTitle className="text-2xl text-center text-gray-100">Criar Conta Bancária</CardTitle>
         </CardHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <CardContent className="space-y-4">
             <div className="space-y-1">
               <Label htmlFor="nome">Nome</Label>
-              <Input id="nome" {...register("nome")} />
+              <Input className="bg-white text-gray-900" id="nome" {...register("nome")} />
               {errors.nome && <p className="text-sm text-red-600">{errors.nome.message}</p>}
             </div>
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" {...register("email")} />
+              <Input className="bg-white text-gray-900" id="email" type="email" {...register("email")} />
               {errors.email && <p className="text-sm text-red-600">{errors.email.message}</p>}
             </div>
             <div className="space-y-1">
               <Label htmlFor="senha">Senha</Label>
-              <Input id="senha" type="password" {...register("senha")} />
+              <Input className="bg-white text-gray-900" id="senha" type="password" {...register("senha")} />
               {errors.senha && <p className="text-sm text-red-600">{errors.senha.message}</p>}
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="tipo">Tipo de Usuário</Label>
+            <div className="space-y-1 mb-4 ">
+              <Label className=" text-white" htmlFor="tipo">Tipo de Usuário</Label>
               <select
                 id="tipo"
                 {...register("tipo")}
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-md px-3 py-2 text-gray-900 font-medium bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 "
               >
                 <option value="cliente">Cliente</option>
                 <option value="funcionario">Funcionário</option>
@@ -101,13 +101,13 @@ export const Register = () => {
               {errors.tipo && <p className="text-sm text-red-600">{errors.tipo.message}</p>}
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-2">
-            <Button type="submit" className="w-full">
+          <CardFooter className="flex flex-col gap-7 mt-6">
+            <Button type="submit" className="size- bg-white text-blue-600 hover:bg-gray-200">
               Registrar
             </Button>
             <a
               href="/login"
-              className="text-sm text-center text-blue-600 hover:underline"
+              className="text-sm text-center text-gray-100 hover:underline"
             >
               Já tem uma conta? Faça login
             </a>
