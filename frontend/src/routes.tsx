@@ -1,5 +1,10 @@
-import { createBrowserRouter, RouterProvider, Navigate, useLocation } from "react-router-dom";
-import { Home,  ErrorPage, Login, Register} from "./pages";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import { Home, ErrorPage, Login, BankAccount, BankServices } from "./pages";
 import { MainLayout } from "./layouts/layout";
 import type { JSX } from "react";
 
@@ -28,11 +33,13 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/register",
-        element: <Register />,
+        path: "/bankAccount",
+        element: <BankAccount />,
       },
-    
-    
+      {
+        path: "/bankServices",
+        element: <BankServices />,
+      },
     ],
   },
 ]);

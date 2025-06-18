@@ -1,8 +1,7 @@
 import { Home } from "./home";
 import { Login } from "./login";
-import { Register } from "./regiter";
+import { BankAccount } from "./bankAccount";
 import { ErrorPage } from "./errorPages";
+import { BankServices } from "./bankServices";
 
-
-export { Home, ErrorPage, Login, Register, };
-    
+export { Home, ErrorPage, Login, BankAccount, BankServices };
