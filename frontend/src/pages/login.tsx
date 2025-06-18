@@ -57,11 +57,11 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-600 to-sky-300 text-white">
+    <div className="min-h-screen flex items-center justify-center w-screen bg-gray-100 p-4">
+      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-700 to-sky-400 text-white rounded-2xl">
         <CardHeader>
           <CardTitle className="text-2xl text-center">
-            Bem vindo ao Nosso Sitema
+            Bem vindo ao Nosso Sistema
           </CardTitle>
           <p className="text-center text-gray-100">Faça login para continuar</p>
         </CardHeader>
@@ -73,7 +73,7 @@ export const Login = () => {
             <div className="space-y-1">
               <Label htmlFor="email">Nome</Label>
               <Input
-                className="bg-white text-gray-900"
+                className="bg-white text-gray-900 rounded-2xl"
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
@@ -86,7 +86,7 @@ export const Login = () => {
             <div className="space-y-1">
               <Label htmlFor="senha">Senha</Label>
               <Input
-                className="bg-white text-gray-900"
+                className="bg-white text-gray-900 rounded-2xl"
                 id="senha"
                 type="password"
                 placeholder="Digite sua senha"
@@ -106,7 +106,7 @@ export const Login = () => {
             </Button>
             <a
               href="/bankAccount"
-              className="text-sm text-center text-gray-100 hover:underline"
+              className="text-sm text-center text-gray-950 hover:underline"
             >
               Não tem conta? Clique aqui para criar
             </a>
