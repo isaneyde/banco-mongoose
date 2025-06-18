@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/authContext";
-import { Separator } from "@radix-ui/react-separator";
+import { Separator } from "@/components/ui/separator";
 import { LogOut } from "lucide-react";
 import {
   DepositoCard,
@@ -11,16 +11,16 @@ import {
 
 export const BankServices = () => {
   const { user, logout } = useAuth();
+
   return (
-    <div>
-      <section>
+    <div className="p-4 space-y-6">
+      <section className="flex justify-between items-center">
         {user ? (
-          <>
-            <div className="text-sm text-gray-600 text-right">
-              <p>
-                Bem-vindo(a), <span className="font-medium">{user.nome}</span>
-              </p>
-            </div>
+          <div className="flex items-center gap-4">
+            <p className="text-sm text-muted-foreground">
+              Bem-vindo(a),{" "}
+              <span className="font-semibold text-foreground">{user.nome}</span>
+            </p>
             <Separator orientation="vertical" className="h-6" />
             <Button
               variant="outline"
@@ -31,21 +31,27 @@ export const BankServices = () => {
               <LogOut className="w-4 h-4" />
               Sair
             </Button>
-          </>
+          </div>
         ) : (
-          <p className="text-sm text-gray-500">Não autenticado</p>
+          <p className="text-sm text-muted-foreground">Não autenticado</p>
         )}
       </section>
-      <section>
+
+      <section className="relative w-full h-48 rounded-xl overflow-hidden shadow-md">
         <div
-          className="w-screen h-50 bg-cover "
+          className="absolute inset-0 bg-cover bg-center brightness-75"
           style={{
             backgroundImage: "url('/img/background.png')",
           }}
-        ></div>
+        />
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <h2 className="text-white text-2xl font-semibold">
+            Serviços Bancários
+          </h2>
+        </div>
       </section>
 
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rounded-2xl bg-white">
         <DepositoCard />
         <LevantamentoCard />
         <AtendimentoCard />

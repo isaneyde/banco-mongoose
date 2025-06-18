@@ -70,7 +70,7 @@ export const BankAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="min-h-screen flex items-center justify-center p-4 w-screen">
       <Card className="w-full max-w-md shadow-md bg-gradient-to-b from-sky-600 to-sky-300 text-white">
         <CardHeader>
           <CardTitle className="text-2xl text-center text-gray-100">

@@ -5,7 +5,7 @@ const api = axios.create({
   //const API_BASE_URL = (import.meta as any).env.VITE_API_URL || "http://localhost:3004/"
 });
 
-export async function getAllFila(): Promise<Filas[] | undefined> {
+export async function getAllFila(p0: {}): Promise<Filas[] | undefined> {
   try {
     const res = await api.get("/senhas");
     //console.log(res.data)

@@ -58,7 +58,7 @@ export const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center w-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-700 to-sky-400 text-white rounded-2xl">
+      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-700 to-sky-500 text-white rounded-2xl">
         <CardHeader>
           <CardTitle className="text-2xl text-center">
             Bem vindo ao Nosso Sistema
@@ -106,7 +106,7 @@ export const Login = () => {
             </Button>
             <a
               href="/bankAccount"
-              className="text-sm text-center text-gray-950 hover:underline"
+              className="font-bold text-sm text-center text-gray-950 hover:underline"
             >
               Não tem conta? Clique aqui para criar
             </a>
