@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> aec8dfbe89a3b09dcf9fa9a0854828eafab8bb6d
 export const Footer=() =>{
   return (
     <footer className="w-full bg-gray-100 text-gray-600 text-sm py-4 px-6 mt-10 border-t">
@@ -10,3 +14,7 @@ export const Footer=() =>{
     </footer>
   );
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> aec8dfbe89a3b09dcf9fa9a0854828eafab8bb6d

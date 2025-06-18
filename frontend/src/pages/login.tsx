@@ -58,11 +58,10 @@ export const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-lg">
+      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-600 to-sky-300 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">
-            Login no Sistema Bancário
-          </CardTitle>
+          <CardTitle className="text-2xl text-center">Bem vindo ao Nosso Sitema</CardTitle>
+          <p className="text-center text-gray-100">Faça login para continuar</p>
         </CardHeader>
         {mensagem && (
           <div className="text-center mb-2 text-red-600">{mensagem}</div>
@@ -70,39 +69,39 @@ export const Login = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <CardContent className="space-y-4">
             <div className="space-y-1">
-              <Label htmlFor="email">Email</Label>
-              <Input
+              <Label htmlFor="email">Nome</Label>
+              <Input className="bg-white text-gray-900"
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
                 {...register("email")}
               />
               {errors.email && (
-                <p className="text-sm text-red-600">{errors.email.message}</p>
+                <p className="text-sm text-red-400">{errors.email.message}</p>
               )}
             </div>
             <div className="space-y-1">
               <Label htmlFor="senha">Senha</Label>
-              <Input
+              <Input className="bg-white text-gray-900"
                 id="senha"
                 type="password"
                 placeholder="Digite sua senha"
                 {...register("senha")}
               />
               {errors.senha && (
-                <p className="text-sm text-red-600">{errors.senha.message}</p>
+                <p className="text-sm text-red-400">{errors.senha.message}</p>
               )}
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-2">
-            <Button type="submit" className="w-full">
+          <CardFooter className="flex flex-col gap-7 mt-6">
+            <Button type="submit" className="size- bg-white text-blue-600 hover:bg-gray-200">
               Entrar
             </Button>
             <a
               href="#"
-              className="text-sm text-center text-blue-600 hover:underline"
+              className="text-sm text-center text-gray-100 hover:underline"
             >
-              Esqueceu a senha?
+              Não tem conta? Clique aqui para criar
             </a>
           </CardFooter>
         </form>

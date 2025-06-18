@@ -21,4 +21,11 @@ export const ErrorPage=()=> {
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+
+}
+
+
+>>>>>>> aec8dfbe89a3b09dcf9fa9a0854828eafab8bb6d

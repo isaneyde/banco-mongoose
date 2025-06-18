@@ -70,10 +70,10 @@ export const BankAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-md">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <Card className="w-full max-w-md shadow-md bg-gradient-to-b from-sky-600 to-sky-300 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">
+          <CardTitle className="text-2xl text-center text-gray-100">
             Criar Conta Bancária
           </CardTitle>
         </CardHeader>
@@ -87,10 +87,10 @@ export const BankAccount = () => {
           </div>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 rounded-xl">
             <div className="space-y-1">
               <Label htmlFor="fullName">Nome Completo</Label>
-              <Input id="fullName" {...register("fullName")} />
+              <Input className="bg-white rounded-2xl" id="fullName" {...register("fullName")} />
               {errors.fullName && (
                 <p className="text-sm text-red-600">
                   {errors.fullName.message}
@@ -100,14 +100,14 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" {...register("email")} />
+              <Input className="bg-white rounded-2xl" id="email" type="email" {...register("email")} />
               {errors.email && (
                 <p className="text-sm text-red-600">{errors.email.message}</p>
               )}
             </div>
             <div className="space-y-1">
               <Label htmlFor="password">Senha</Label>
-              <Input id="password" type="password" {...register("password")} />
+              <Input className="bg-white rounded-2xl" id="password" type="password" {...register("password")} />
               {errors.password && (
                 <p className="text-sm text-red-600">
                   {errors.password.message}
@@ -117,7 +117,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="phoneNumber">Telefone</Label>
-              <Input id="phoneNumber" {...register("phoneNumber")} />
+              <Input className="bg-white rounded-2xl" id="phoneNumber" {...register("phoneNumber")} />
               {errors.phoneNumber && (
                 <p className="text-sm text-red-600">
                   {errors.phoneNumber.message}
@@ -127,7 +127,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="address">Endereço</Label>
-              <Input id="address" {...register("address")} />
+              <Input className="bg-white rounded-2xl" id="address" {...register("address")} />
               {errors.address && (
                 <p className="text-sm text-red-600">{errors.address.message}</p>
               )}
@@ -135,7 +135,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="identityNumber">Número de Identidade</Label>
-              <Input id="identityNumber" {...register("identityNumber")} />
+              <Input className="bg-white rounded-2xl" id="identityNumber" {...register("identityNumber")} />
               {errors.identityNumber && (
                 <p className="text-sm text-red-600">
                   {errors.identityNumber.message}
@@ -144,11 +144,11 @@ export const BankAccount = () => {
             </div>
 
             <div className="space-y-1">
-              <Label htmlFor="accountType">Tipo de Conta</Label>
+              <Label  htmlFor="accountType">Tipo de Conta</Label>
               <select
                 id="accountType"
                 {...register("accountType")}
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border rounded-2xl px-3 py-2 bg-white"
               >
                 <option value="poupança">Poupança</option>
                 <option value="corrente">Corrente</option>
@@ -163,7 +163,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="initialDeposit">Depósito Inicial</Label>
-              <Input
+              <Input className="bg-white rounded-2xl"
                 id="initialDeposit"
                 type="number"
                 {...register("initialDeposit")}
@@ -175,13 +175,14 @@ export const BankAccount = () => {
               )}
             </div>
           </CardContent>
-          <CardFooter className="flex flex-col gap-2">
-            <Button type="submit" className="w-full">
+          <CardFooter className="flex flex-col gap-7 mt-6 rounded-2xl">
+            <Button type="submit" className="bg-blue-600 hover:bg-gray-200">
               Registrar
             </Button>
             <a
               href="/login"
-              className="text-sm text-center text-blue-600 hover:underline"
+              className="text-sm text-center   hover:underline"
+              
             >
               Já tem uma conta? Faça login
             </a>

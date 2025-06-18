@@ -7,10 +7,15 @@
     "config": "",
     "css": "src/index.css",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "baseColor": "neutral",
 =======
     "baseColor": "slate",
 >>>>>>> 48e0fab286acedddc6c846b0420b5ce63d87c708
+=======
+    "baseColor": "slate",
+    "baseColor": "neutral",
+>>>>>>> aec8dfbe89a3b09dcf9fa9a0854828eafab8bb6d
     "cssVariables": true,
     "prefix": ""
   },

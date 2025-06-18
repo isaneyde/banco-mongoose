@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx --watch src/server.ts"
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "description": "",
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
@@ -28,9 +29,17 @@
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.9",
     "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.0.3",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.20.3",
+<<<<<<< HEAD
     "typescript": "^5.8.3"
   },
   "description": ""
 }
+=======
+    "typescript": "^5.8.3",
+    "nodemon": "^3.1.10"
+  }
+}
+>>>>>>> aec8dfbe89a3b09dcf9fa9a0854828eafab8bb6d
