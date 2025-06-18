@@ -87,10 +87,10 @@ export const BankAccount = () => {
           </div>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-4 rounded-xl">
+          <CardContent className="space-y-4 rounded-xl ">
             <div className="space-y-1">
               <Label htmlFor="fullName">Nome Completo</Label>
-              <Input className="bg-white rounded-2xl" id="fullName" {...register("fullName")} />
+              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="fullName" {...register("fullName")} />
               {errors.fullName && (
                 <p className="text-sm text-red-600">
                   {errors.fullName.message}
@@ -100,14 +100,14 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="email">Email</Label>
-              <Input className="bg-white rounded-2xl" id="email" type="email" {...register("email")} />
+              <Input className="bg-white border-none  rounded-2xl text-gray-950 " id="email" type="email" {...register("email")} />
               {errors.email && (
                 <p className="text-sm text-red-600">{errors.email.message}</p>
               )}
             </div>
             <div className="space-y-1">
               <Label htmlFor="password">Senha</Label>
-              <Input className="bg-white rounded-2xl" id="password" type="password" {...register("password")} />
+              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="password" type="password" {...register("password")} />
               {errors.password && (
                 <p className="text-sm text-red-600">
                   {errors.password.message}
@@ -117,7 +117,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="phoneNumber">Telefone</Label>
-              <Input className="bg-white rounded-2xl" id="phoneNumber" {...register("phoneNumber")} />
+              <Input className="bg-white border-none  rounded-2xl" id="phoneNumber text-gray-950" {...register("phoneNumber")} />
               {errors.phoneNumber && (
                 <p className="text-sm text-red-600">
                   {errors.phoneNumber.message}
@@ -127,7 +127,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="address">Endereço</Label>
-              <Input className="bg-white rounded-2xl" id="address" {...register("address")} />
+              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="address" {...register("address")} />
               {errors.address && (
                 <p className="text-sm text-red-600">{errors.address.message}</p>
               )}
@@ -135,7 +135,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="identityNumber">Número de Identidade</Label>
-              <Input className="bg-white rounded-2xl" id="identityNumber" {...register("identityNumber")} />
+              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="identityNumber" {...register("identityNumber")} />
               {errors.identityNumber && (
                 <p className="text-sm text-red-600">
                   {errors.identityNumber.message}
@@ -148,7 +148,7 @@ export const BankAccount = () => {
               <select
                 id="accountType"
                 {...register("accountType")}
-                className="w-full border rounded-2xl px-3 py-2 bg-white"
+                className="w-full border rounded-2xl border-none  px-3 py-2 bg-white text-gray-950"
               >
                 <option value="poupança">Poupança</option>
                 <option value="corrente">Corrente</option>
@@ -163,7 +163,7 @@ export const BankAccount = () => {
 
             <div className="space-y-1">
               <Label htmlFor="initialDeposit">Depósito Inicial</Label>
-              <Input className="bg-white rounded-2xl"
+              <Input className="border-none bg-white rounded-2xl text-gray-950"
                 id="initialDeposit"
                 type="number"
                 {...register("initialDeposit")}
