@@ -60,7 +60,9 @@ export const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-600 to-sky-300 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">Bem vindo ao Nosso Sitema</CardTitle>
+          <CardTitle className="text-2xl text-center">
+            Bem vindo ao Nosso Sitema
+          </CardTitle>
           <p className="text-center text-gray-100">Faça login para continuar</p>
         </CardHeader>
         {mensagem && (
@@ -70,7 +72,8 @@ export const Login = () => {
           <CardContent className="space-y-4">
             <div className="space-y-1">
               <Label htmlFor="email">Nome</Label>
-              <Input className="bg-white text-gray-900"
+              <Input
+                className="bg-white text-gray-900"
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
@@ -82,7 +85,8 @@ export const Login = () => {
             </div>
             <div className="space-y-1">
               <Label htmlFor="senha">Senha</Label>
-              <Input className="bg-white text-gray-900"
+              <Input
+                className="bg-white text-gray-900"
                 id="senha"
                 type="password"
                 placeholder="Digite sua senha"
@@ -94,11 +98,14 @@ export const Login = () => {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-7 mt-6">
-            <Button type="submit" className="size- bg-white text-blue-600 hover:bg-gray-200">
+            <Button
+              type="submit"
+              className="size- bg-white text-blue-600 hover:bg-gray-200"
+            >
               Entrar
             </Button>
             <a
-              href="#"
+              href="/bankAccount"
               className="text-sm text-center text-gray-100 hover:underline"
             >
               Não tem conta? Clique aqui para criar

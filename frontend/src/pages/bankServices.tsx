@@ -20,7 +20,6 @@ export const BankServices = () => {
               <p>
                 Bem-vindo(a), <span className="font-medium">{user.nome}</span>
               </p>
-              <p className="text-xs text-gray-500">{user.email}</p>
             </div>
             <Separator orientation="vertical" className="h-6" />
             <Button
