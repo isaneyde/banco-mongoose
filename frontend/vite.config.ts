@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite"
 export default defineConfig({
   plugins: [react(), tailwindcss()],
     server: {
-    port: 5004 // coloque aqui a porta desejada
+    port: 5004 //
   },
    resolve: {
 
@@ -16,7 +16,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    port: 5004,
-      },
+ 
 })
