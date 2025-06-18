@@ -1,13 +1,12 @@
-// src/server.ts
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import { authRouter } from "./routes/auth.route.ts";
-import {banckAccountRouter} from "./routes/banckAcount.route.ts";
+import { banckAccountRouter } from "./routes/banckAcount.route.ts";
 import filaRouter from "./routes/fila.route.ts";
-import {branchRouter} from "./routes/branch.route.ts";
+import { branchRouter } from "./routes/branch.route.ts";
 import { appointmentRouter } from "./routes/appointment.route";
 
 dotenv.config();
@@ -18,17 +17,14 @@ const PORT = 3004;
 app.use(cors());
 app.use(express.json());
 
+app.use("/", authRouter);
 
-app.use("/login", authRouter);
-
-app.use("/conta", banckAccountRouter); 
+app.use("/conta", banckAccountRouter);
 
 app.use("/appointments", appointmentRouter);
 app.use("/branches", branchRouter);
 
-
-app.use("/fila", filaRouter); 
-
+app.use("/fila", filaRouter);
 
 mongoose.connect(process.env.BD_URI || "");
 mongoose.connection.once("open", () =>

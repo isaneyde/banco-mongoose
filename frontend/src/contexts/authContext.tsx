@@ -1,5 +1,5 @@
-import type{ ReactNode } from "react";
-import React, { createContext, useContext, useState} from "react";
+import type { ReactNode } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 type User = {
   id: string;
@@ -19,7 +19,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(() => {
-    // Tenta carregar o usuário do localStorage (persistência simples)
     const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
@@ -29,7 +28,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem("user");
   };
 
-  // Sempre que o user mudar, salva no localStorage
   React.useEffect(() => {
     if (user) {
       localStorage.setItem("user", JSON.stringify(user));
@@ -43,7 +41,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Hook para usar o AuthContext em componentes
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {

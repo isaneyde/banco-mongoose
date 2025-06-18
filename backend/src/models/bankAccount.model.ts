@@ -1,6 +1,7 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
+import { model } from "mongoose";
 
-const BankAccountSchema = new Schema(
+const BankAccountSchema = new mongoose.Schema(
   {
     fullName: { type: String, required: true },
     email: { type: String, required: true },
@@ -13,6 +14,8 @@ const BankAccountSchema = new Schema(
       required: true,
     },
     initialDeposit: { type: Number, required: true },
+
+    password: { type: String, required: true },
   },
   { timestamps: { createdAt: true, updatedAt: false } }
 );
