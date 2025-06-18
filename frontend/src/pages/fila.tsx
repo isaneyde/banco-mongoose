@@ -70,7 +70,7 @@ export const Fila = () => {
         {filas.map((fila, index) => (
           <Card
             key={index}
-            className="bg-white shadow-lg w-80 rounded-2xl border shadow-2xl shadow-black"
+            className="bg-white shadow-lg w-80 rounded-2xl border shadow-black ml-4"
           >
             <CardHeader className="bg-blue-800 text-white rounded-t-2xl px-4 py-3 -mt-6">
               <CardTitle className="text-lg">Fila de Atendimento</CardTitle>
@@ -101,7 +101,7 @@ export const Fila = () => {
                     Sair da fila
                   </Button>
                 </AlertDialogTrigger>
-                <AlertDialogContent>
+                <AlertDialogContent className="bg-white">
                   <AlertDialogHeader>
                     <AlertDialogTitle>
                       Tem certeza que deseja sair da fila?
