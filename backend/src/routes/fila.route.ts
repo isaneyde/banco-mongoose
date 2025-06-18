@@ -1,12 +1,10 @@
-import { Router } from "express";
-import { addToFila, getFilaStatus} from "../controllers/fila.controllers";
-import { authentionToken} from "../milddleware/auth.Middleware";
-import { isAdmin } from "../milddleware/role.middlware";
-
-export const filaRouter = Router();
-
-filaRouter.post("/", authentionToken, addToFila);
-filaRouter.get("/:userId", authentionToken, getFilaStatus);
+import express from "express"
+import { createSenha,updateFila, getFilaId, deletedFila, getAllFila} from "../controllers/fila.controller";
+export const SenhaRoute= express.Router();
 
 
-export default filaRouter;
+SenhaRoute.post("/", createSenha);
+SenhaRoute.put("/:id", updateFila);
+SenhaRoute.delete("/:id",deletedFila);
+SenhaRoute.get("/:id", getFilaId);
+SenhaRoute.get("/", getAllFila)
