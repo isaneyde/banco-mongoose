@@ -2,35 +2,43 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-
-import { authRouter } from "./routes/auth.route.ts";
-import { banckAccountRouter } from "./routes/banckAcount.route.ts";
-import filaRouter from "./routes/fila.route.ts";
-import { branchRouter } from "./routes/branch.route.ts";
+import { SenhaRoute } from "./routes/fila.route";
+import { authRouter } from "./routes/auth.route";
+import { banckAccountRouter } from "./routes/banckAcount.route";
+import { branchRouter } from "./routes/branch.route";
 import { appointmentRouter } from "./routes/appointment.route";
 
 dotenv.config();
 
 const app = express();
-const PORT = 3004;
+const PORT = process.env.PORT || 3004;
+const HOST = process.env.HOST || "http://localhost";
 
-app.use(cors());
+// Middlewares
+app.use(
+  cors({
+    origin: "http://localhost:5004",
+  })
+);
 app.use(express.json());
 
+// Rotas
 app.use("/", authRouter);
-
 app.use("/conta", banckAccountRouter);
-
 app.use("/appointments", appointmentRouter);
 app.use("/branches", branchRouter);
 
-app.use("/fila", filaRouter);
+app.use("/senhas", SenhaRoute);
 
-mongoose.connect(process.env.BD_URI || "");
-mongoose.connection.once("open", () =>
-  console.log("BD conectado com sucesso!")
-);
+// Conexão com o banco
+mongoose
+  .connect(process.env.BD_URI || "")
+  .then(() => console.log("BD conectado com sucesso!"))
+  .catch((error) =>
+    console.log("Ocorreu um erro ao conectar com a BD:", error)
+  );
 
+// Start do servidor
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${HOST}:${PORT}`);
 });
