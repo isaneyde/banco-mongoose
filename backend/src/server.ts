@@ -1,25 +1,36 @@
+import express from "express";
 import cors from "cors";
-import { SenhaRoute } from "./routes/fila.route";
 import mongoose from "mongoose";
-import dotenv from "dotenv"
-import express from "express"
+import dotenv from "dotenv";
 
-const app=express();
-app.use(express.json());
-app.use(cors({
-  origin: 'http://localhost:5004'
-}));
+import { authRouter } from "./routes/auth.route.ts";
+import { banckAccountRouter } from "./routes/banckAcount.route.ts";
+import {SenhaRoute} from "./routes/fila.route.ts";
+import { branchRouter } from "./routes/branch.route.ts";
+import { appointmentRouter } from "./routes/appointment.route";
 
 dotenv.config();
 
-const host =process.env.HOST || "http://localhost";
-const port = process.env.PORT || 3004
+const app = express();
+const PORT = 3004;
 
-app.use("/senhas",SenhaRoute );
+app.use(cors());
+app.use(express.json());
 
-mongoose
-.connect(process.env.BD_URI as string)
-.then(()=>console.log("BD conectado com sucesso!"))
-.catch((error)=>console.log("OCorreu um erro ao conectar com a BD:",error));
+app.use("/", authRouter);
 
-app.listen(port,()=>console.log(`Server running on ${host}:${port}`));
+app.use("/conta", banckAccountRouter);
+
+app.use("/appointments", appointmentRouter);
+app.use("/branches", branchRouter);
+
+app.use("/fila", SenhaRoute);
+
+mongoose.connect(process.env.BD_URI || "");
+mongoose.connection.once("open", () =>
+  console.log("BD conectado com sucesso!")
+);
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

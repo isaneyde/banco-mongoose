@@ -6,7 +6,11 @@
   "tailwind": {
     "config": "",
     "css": "src/index.css",
+<<<<<<< HEAD
     "baseColor": "neutral",
+=======
+    "baseColor": "slate",
+>>>>>>> 48e0fab286acedddc6c846b0420b5ce63d87c708
     "cssVariables": true,
     "prefix": ""
   },
