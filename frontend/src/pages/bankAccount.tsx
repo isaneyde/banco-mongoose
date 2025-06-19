@@ -70,10 +70,10 @@ export const BankAccount = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 w-screen">
-      <Card className="w-full max-w-md shadow-md bg-gradient-to-b from-sky-600 to-sky-300 text-white">
+    <div className="min-h-screen flex items-center justify-center p-4 w-screen font-[Poppins]">
+      <Card className="w-full max-w-md  px-6 shadow-md bg-gradient-to-b from-indigo-950 to-cyan-600 text-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-center text-gray-100">
+          <CardTitle className="mt-12 mb-8 text-2xl text-center text-gray-100">
             Criar Conta Bancária
           </CardTitle>
         </CardHeader>
@@ -87,10 +87,10 @@ export const BankAccount = () => {
           </div>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-4 rounded-xl ">
-            <div className="space-y-1">
+          <CardContent className="space-y-6 rounded-xl ">
+            <div className="space-y-2">
               <Label htmlFor="fullName">Nome Completo</Label>
-              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="fullName" {...register("fullName")} />
+              <Input className="py-5 bg-white border-none  rounded-2xl text-gray-950" id="fullName" {...register("fullName")} />
               {errors.fullName && (
                 <p className="text-sm text-red-600">
                   {errors.fullName.message}
@@ -98,14 +98,14 @@ export const BankAccount = () => {
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input className="bg-white border-none  rounded-2xl text-gray-950 " id="email" type="email" {...register("email")} />
               {errors.email && (
                 <p className="text-sm text-red-600">{errors.email.message}</p>
               )}
             </div>
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="password">Senha</Label>
               <Input className="bg-white border-none  rounded-2xl text-gray-950" id="password" type="password" {...register("password")} />
               {errors.password && (
@@ -115,7 +115,7 @@ export const BankAccount = () => {
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="phoneNumber">Telefone</Label>
               <Input className="bg-white border-none  rounded-2xl" id="phoneNumber text-gray-950" {...register("phoneNumber")} />
               {errors.phoneNumber && (
@@ -125,7 +125,7 @@ export const BankAccount = () => {
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="address">Endereço</Label>
               <Input className="bg-white border-none  rounded-2xl text-gray-950" id="address" {...register("address")} />
               {errors.address && (
@@ -133,26 +133,27 @@ export const BankAccount = () => {
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="identityNumber">Número de Identidade</Label>
-              <Input className="bg-white border-none  rounded-2xl text-gray-950" id="identityNumber" {...register("identityNumber")} />
-              {errors.identityNumber && (
-                <p className="text-sm text-red-600">
-                  {errors.identityNumber.message}
-                </p>
+              <Input className="bg-white border-none  rounded-2xl text-gray-950 focus:outline-none focus:border-none"
+                id="identityNumber" {...register("identityNumber")} />
+                {errors.identityNumber && (
+                  <p className="text-sm text-red-600">
+                    {errors.identityNumber.message}
+                  </p>
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label  htmlFor="accountType">Tipo de Conta</Label>
               <select
                 id="accountType"
                 {...register("accountType")}
-                className="w-full border rounded-2xl border-none  px-3 py-2 bg-white text-gray-950"
+                className="w-full border rounded-2xl border-none  px-3 py-2 bg-white text-gray-600"
               >
-                <option value="poupança">Poupança</option>
-                <option value="corrente">Corrente</option>
-                <option value="salário">Salário</option>
+                <option value="poupança" className="bg-gray-300">Poupança</option>
+                <option value="corrente" className="bg-gray-300">Corrente</option>
+                <option value="salário" className="bg-gray-300">Salário</option>
               </select>
               {errors.accountType && (
                 <p className="text-sm text-red-600">
@@ -161,7 +162,7 @@ export const BankAccount = () => {
               )}
             </div>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <Label htmlFor="initialDeposit">Depósito Inicial</Label>
               <Input className="border-none bg-white rounded-2xl text-gray-950"
                 id="initialDeposit"
@@ -176,15 +177,16 @@ export const BankAccount = () => {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-7 mt-6 rounded-2xl">
-            <Button type="submit" className="bg-blue-600 hover:bg-gray-200">
+            <Button type="submit"
+            className="w-full py-6 mt-6 rounded-2xl font-semibold text-md bg-sky-900 hover:bg-sky-950 hover:text-xl cursor-pointer ">
               Registrar
             </Button>
             <a
               href="/login"
-              className="text-sm text-center   hover:underline"
+              className="text-sm text-center"
               
             >
-              Já tem uma conta? Faça login
+              <p>Já tem conta? <span className="hover:underline">Faça Login</span> </p>
             </a>
           </CardFooter>
         </form>
