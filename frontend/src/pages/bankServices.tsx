@@ -13,7 +13,7 @@ export const BankServices = () => {
   const { user, logout } = useAuth();
 
   return (
-    <div className="p-4 space-y-6">
+    <div className="font-[Poppins] p-4 space-y-6 bg-gradient-to-b from-indigo-950 to-cyan-600"> 
       <section className="flex justify-between items-center">
         {user ? (
           <div className="flex items-center gap-4">
@@ -45,7 +45,7 @@ export const BankServices = () => {
           }}
         />
         <div className="relative z-10 flex items-center justify-center h-full">
-          <h2 className="text-white text-2xl font-semibold">
+          <h2 className="text-white text-2xl font-semibold uppercase">
             Serviços Bancários
           </h2>
         </div>
