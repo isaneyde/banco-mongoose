@@ -48,7 +48,7 @@ export const Fila = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setService("Fora de Serviço");
-    }, 15000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -97,7 +97,7 @@ export const Fila = () => {
             <CardFooter>
               <AlertDialog>
                 <AlertDialogTrigger>
-                  <Button>
+                  <Button className="bg-red-700 rounded-2xl text-white">
                     Sair da fila
                   </Button>
                 </AlertDialogTrigger>

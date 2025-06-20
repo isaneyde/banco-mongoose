@@ -7,4 +7,4 @@ import {
 export const appointmentRouter = express.Router();
 
 appointmentRouter.post("/creat", createAppointment);
-appointmentRouter.get("/gt", getAllAppointments);
+appointmentRouter.get("/get", getAllAppointments);

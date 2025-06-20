@@ -35,16 +35,18 @@ export const OperacaoCard = ({
   children,
 }: OperacaoCardProps) => {
   return (
-    <Card className="shadow-md">
+    <Card className="shadow-md border-sky-800 rounded-2xl">
       <CardHeader className="flex items-center gap-2">
         <div className="w-6 h-6">{icone}</div>
         <CardTitle className="text-base">{titulo}</CardTitle>
       </CardHeader>
-      <CardContent className="text-sm text-gray-600 flex flex-col gap-3">
+
+
+      <CardContent className=" rounded-2xl border-none text-sm text-gray-600 flex flex-col gap-3">
         <p>{descricao}</p>
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant="outline" className="w-fit">
+            <Button variant="outline" className="w-fit  bg-sky-800 text-gray-100 rounded-2xl hover:bg-sky-700 hover:text-gray-100">
               {tipoOperacao}
             </Button>
           </AlertDialogTrigger>
@@ -150,7 +152,7 @@ export const AcaoSimplesCard = ({
         <p>{descricao}</p>
         <AlertDialog>
           <AlertDialogTrigger asChild>
-            <Button variant="outline" className="w-fit">
+            <Button variant="outline" className="w-fit bg-sky-800 text-gray-100 rounded-2xl hover:bg-sky-700 hover:text-gray-100">
               {textoBotao}
             </Button>
           </AlertDialogTrigger>

@@ -6,5 +6,5 @@ import {
 
 export const agendamentoRouter = express.Router();
 
-agendamentoRouter.post("/", criarAgendamento);
-agendamentoRouter.get("/", listarAgendamentos);
+agendamentoRouter.post("/criar", criarAgendamento);
+agendamentoRouter.get("/listar", listarAgendamentos);

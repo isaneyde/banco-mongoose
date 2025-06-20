@@ -11,7 +11,7 @@ export type Agendamento = {
 
 export async function createAgendamento(data: Agendamento) {
   try {
-    const response = await api.post("/agendamentos", data);
+    const response = await api.post("/agendamento/criar", data);
     return response.data;
   } catch (error: any) {
     if (axios.isAxiosError(error)) {
@@ -23,7 +23,7 @@ export async function createAgendamento(data: Agendamento) {
 
 export async function getAgendamentos() {
   try {
-    const response = await api.get("/agendamentos");
+    const response = await api.get("/agendamento/listar");
     return response.data as Agendamento[];
   } catch (error: any) {
     if (axios.isAxiosError(error)) {

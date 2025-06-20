@@ -57,36 +57,35 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center w-screen bg-gray-100 p-4">
-      <Card className="w-full max-w-md shadow-lg bg-gradient-to-b from-sky-700 to-sky-500 text-white rounded-2xl">
+    <div className="min-h-screen flex items-center justify-center w-screen bg-gray-100 p-4 font-[Poppins]">
+      <Card className="w-full max-w-md px-6 shadow-lg bg-gradient-to-b from-indigo-950 to-cyan-600 text-white rounded-2xl">
         <CardHeader>
-          <CardTitle className="text-2xl text-center">
-            Bem vindo ao Nosso Sistema
+          <CardTitle className="text-xl mt-12 mb-8 text-center">
+            FAÇA LOGIN PARA CONTINUAR!
           </CardTitle>
-          <p className="text-center text-gray-100">Faça login para continuar</p>
         </CardHeader>
         {mensagem && (
           <div className="text-center mb-2 text-red-600">{mensagem}</div>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-4">
-            <div className="space-y-1">
-              <Label htmlFor="email">Nome</Label>
+          <CardContent className="space-y-8">
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-xl">Email</Label>
               <Input
-                className="bg-white text-gray-900 rounded-2xl"
+                className="py-6 bg-white text-gray-600 text-sm rounded-2xl border-none"
                 id="email"
                 type="email"
                 placeholder="exemplo@email.com"
                 {...register("email")}
               />
               {errors.email && (
-                <p className="text-sm text-red-400">{errors.email.message}</p>
+                <p className="text-sm font-medium text-red-500 text-shadow-2xl">{errors.email.message}</p>
               )}
             </div>
             <div className="space-y-1">
-              <Label htmlFor="senha">Senha</Label>
+              <Label htmlFor="senha" className="text-xl">Senha</Label>
               <Input
-                className="bg-white text-gray-900 rounded-2xl"
+                className=" py-6 bg-white text-gray-600 text-sm rounded-2xl border-none"
                 id="senha"
                 type="password"
                 placeholder="Digite sua senha"
@@ -100,15 +99,15 @@ export const Login = () => {
           <CardFooter className="flex flex-col gap-7 mt-6">
             <Button
               type="submit"
-              className="size- bg-white text-blue-600 hover:bg-gray-200"
+              className="w-full py-6 mt-6 rounded-2xl font-semibold text-md bg-sky-900 hover:bg-sky-950 hover:text-xl cursor-pointer"
             >
               Entrar
             </Button>
             <a
               href="/bankAccount"
-              className="font-bold text-sm text-center text-gray-950 hover:underline"
+              className="font-medium text-sm text-center text-gray-300 "
             >
-              Não tem conta? Clique aqui para criar
+              <p>Não tem conta? <span className="hover:underline">Clique aqui para criar</span> </p>
             </a>
           </CardFooter>
         </form>
