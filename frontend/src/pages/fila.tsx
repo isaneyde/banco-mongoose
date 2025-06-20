@@ -20,7 +20,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import type { Filas } from "../types/fila";
 import { useState, useEffect } from "react";
-import { getAllFila } from "../services/fila";
+import { getAllFila } from "../services/fila.serve.";
 import { NavLink } from "react-router-dom";
 
 export const Fila = () => {

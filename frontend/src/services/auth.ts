@@ -4,7 +4,7 @@ const API_URL = "http://localhost:3004";
 
 export async function login(email: string, password: string) {
   try {
-    const response = await axios.post(`${API_URL}/login`, { email, password });
+    const response = await axios.post(`${API_URL}/auth/login`, { email, password });
     if (response.status === 200) {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("session", JSON.stringify(response.data.user));

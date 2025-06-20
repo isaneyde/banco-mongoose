@@ -4,7 +4,7 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
-import { Home, ErrorPage, Login, BankAccount, BankServices, Fila} from "./pages";
+import { Home, ErrorPage, Login, BankAccount, BankServices, Fila,CalendarioAtendimento,Sucesso} from "./pages";
 import type { JSX } from "react";
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
@@ -39,6 +39,15 @@ const router = createBrowserRouter([
       {
     path: "/fila",
     element: <Fila />,
+
+   },
+    {
+    path: "/calendarAtendimento",
+    element: <CalendarioAtendimento />,
+
+   },{
+    path: "/sucesso",
+    element: <Sucesso />,
 
    }
     ],

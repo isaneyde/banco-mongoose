@@ -14,19 +14,25 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ListaAgencias } from "@/components/listaAgencia";
 import { PiggyBank, HandCoins, Handshake, RefreshCcw } from "lucide-react";
 import type { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 
-type OperacaoCardProps = {
+// Tipagem genérica para cards operacionais
+interface OperacaoCardProps {
   titulo: string;
   descricao: string;
   tipoOperacao: string;
   icone: ReactNode;
-};
+  onConfirm?: () => void;
+  children?: ReactNode;
+}
 
 export const OperacaoCard = ({
   titulo,
   descricao,
   tipoOperacao,
   icone,
+  onConfirm,
+  children,
 }: OperacaoCardProps) => {
   return (
     <Card className="shadow-md border-sky-800 rounded-2xl">
@@ -35,16 +41,15 @@ export const OperacaoCard = ({
         <CardTitle className="text-base">{titulo}</CardTitle>
       </CardHeader>
 
+
       <CardContent className=" rounded-2xl border-none text-sm text-gray-600 flex flex-col gap-3">
         <p>{descricao}</p>
-
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="outline" className="w-fit  bg-sky-800 text-gray-100 rounded-2xl hover:bg-sky-700 hover:text-gray-100">
               {tipoOperacao}
             </Button>
           </AlertDialogTrigger>
-
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>
@@ -54,13 +59,15 @@ export const OperacaoCard = ({
                 Agências mais próximas.
               </AlertDialogDescription>
             </AlertDialogHeader>
-
-            <ListaAgencias />
-
+            {children ?? <ListaAgencias />}
             <AlertDialogFooter>
               <Button>NUMERÁRIO</Button>
               <Button>CHEQUE</Button>
-              <AlertDialogCancel>Fechar</AlertDialogCancel>
+              {onConfirm && (
+                <AlertDialogAction onClick={onConfirm}>
+                  Confirmar
+                </AlertDialogAction>
+              )}
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
@@ -69,7 +76,54 @@ export const OperacaoCard = ({
   );
 };
 
-type AcaoSimplesCardProps = {
+export const OperacaoAtendimento = ({
+  titulo,
+  descricao,
+  tipoOperacao,
+  icone,
+  onConfirm,
+  children,
+}: OperacaoCardProps) => {
+  return (
+    <Card className="shadow-md">
+      <CardHeader className="flex items-center gap-2">
+        <div className="w-6 h-6">{icone}</div>
+        <CardTitle className="text-base">{titulo}</CardTitle>
+      </CardHeader>
+      <CardContent className="text-sm text-gray-600 flex flex-col gap-3">
+        <p>{descricao}</p>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="outline" className="w-fit">
+              {tipoOperacao}
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>
+                Escolha o local de {tipoOperacao.toLowerCase()}
+              </AlertDialogTitle>
+              <AlertDialogDescription>
+                Agências mais próximas.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            {children ?? <ListaAgencias />}
+            <AlertDialogFooter>
+              <AlertDialogCancel>Fechar</AlertDialogCancel>
+              {onConfirm && (
+                <AlertDialogAction onClick={onConfirm}>
+                  Confirmar
+                </AlertDialogAction>
+              )}
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
+      </CardContent>
+    </Card>
+  );
+};
+
+interface AcaoSimplesCardProps {
   titulo: string;
   descricao: string;
   mensagemDialogo: string;
@@ -77,7 +131,7 @@ type AcaoSimplesCardProps = {
   textoBotao: string;
   icone: ReactNode;
   onConfirm?: () => void;
-};
+}
 
 export const AcaoSimplesCard = ({
   titulo,
@@ -96,7 +150,6 @@ export const AcaoSimplesCard = ({
       </CardHeader>
       <CardContent className="text-sm text-gray-600 flex flex-col gap-3">
         <p>{descricao}</p>
-
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Button variant="outline" className="w-fit bg-sky-800 text-gray-100 rounded-2xl hover:bg-sky-700 hover:text-gray-100">
@@ -106,15 +159,11 @@ export const AcaoSimplesCard = ({
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>{mensagemDialogo}</AlertDialogTitle>
-              <AlertDialogDescription>
-                {subtituloDialogo}
-              </AlertDialogDescription>
+              <AlertDialogDescription>{subtituloDialogo}</AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel>Cancelar</AlertDialogCancel>
-              <AlertDialogAction onClick={onConfirm}>
-                Confirmar
-              </AlertDialogAction>
+              <AlertDialogAction onClick={onConfirm}>Confirmar</AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
@@ -123,14 +172,23 @@ export const AcaoSimplesCard = ({
   );
 };
 
-export const DepositoCard = () => (
-  <OperacaoCard
-    titulo="Depósitos"
-    descricao="Gerencie seus depósitos diários com facilidade. Transferências, extratos e mais."
-    tipoOperacao="Depositar"
-    icone={<PiggyBank className="text-blue-600 w-6 h-6" />}
-  />
-);
+export const DepositoCard = () => {
+  const navigate = useNavigate();
+  const handleConfirm = () => {
+    console.log("Depósito solicitado");
+    navigate("/sucesso");
+  };
+
+  return (
+    <OperacaoCard
+      titulo="Depósitos"
+      descricao="Gerencie seus depósitos diários com facilidade. Transferências, extratos e mais."
+      tipoOperacao="Depositar"
+      icone={<PiggyBank className="text-blue-600 w-6 h-6" />}
+      onConfirm={handleConfirm}
+    />
+  );
+};
 
 export const LevantamentoCard = () => (
   <OperacaoCard
@@ -141,17 +199,24 @@ export const LevantamentoCard = () => (
   />
 );
 
-export const AtendimentoCard = () => (
-  <AcaoSimplesCard
-    titulo="Atendimentos"
-    descricao="Solicite atendimento flexível."
-    mensagemDialogo="Chamar Atendimento?"
-    subtituloDialogo="Um agente entrará em contato em breve."
-    textoBotao="Solicitar Atendimento"
-    icone={<Handshake className="text-green-600 w-6 h-6" />}
-    onConfirm={() => console.log("Atendimento solicitado")}
-  />
-);
+export const AtendimentoCard = () => {
+  const navigate = useNavigate();
+  const handleConfirm = () => {
+    console.log("Atendimento solicitado");
+    navigate("/calendarAtendimento");
+  };
+
+  return (
+    <OperacaoAtendimento
+      titulo="Atendimento"
+      descricao="Agende seu atendimento com facilidade nas agências mais próximas."
+      tipoOperacao="Agendar"
+      icone={<Handshake className="text-green-600 w-6 h-6" />}
+      onConfirm={handleConfirm}
+      children={<ListaAgencias />}
+    />
+  );
+};
 
 export const AtualizacaoCard = () => (
   <AcaoSimplesCard

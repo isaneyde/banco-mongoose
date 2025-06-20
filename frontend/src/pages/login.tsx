@@ -63,7 +63,6 @@ export const Login = () => {
           <CardTitle className="text-xl mt-12 mb-8 text-center">
             FAÇA LOGIN PARA CONTINUAR!
           </CardTitle>
-          {/* <p className="text-center text-gray-100">Faça login para continuar</p> */}
         </CardHeader>
         {mensagem && (
           <div className="text-center mb-2 text-red-600">{mensagem}</div>
